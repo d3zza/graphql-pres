@@ -1,0 +1,9 @@
+type Project {
+  id: ID!
+  projectImage: String
+  name: String
+  notes: String
+  steps: [Step]
+  priceItemCategories: [ PriceItemCategory ]
+  maxStepVisited: Step
+}

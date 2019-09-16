@@ -1,0 +1,11 @@
+type Query {
+  me: User
+}
+
+type User {
+  id: ID
+  name: String
+  city: String
+  state: String
+  friends: [User]
+}

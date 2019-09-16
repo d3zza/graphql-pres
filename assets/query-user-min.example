@@ -1,0 +1,13 @@
+#query
+{
+  me {
+    name
+  }
+}
+
+#response
+{
+  "me": {
+    "name": "John Doe"
+  }
+}

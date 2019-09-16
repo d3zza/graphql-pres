@@ -1,0 +1,14 @@
+#response
+{
+  "me": {
+    "name": "John Doe"
+    "friends": [
+      {
+        "name": "Jane Doe"
+      },
+      {
+        "name": "Jim Doe"
+      }
+    ]
+  }
+}

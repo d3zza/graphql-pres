@@ -1,0 +1,87 @@
+type Project {
+  id: ID!
+  hasUser: Boolean
+  projectImage: String
+  userid: String
+  name: String
+  notes: String
+  steps: [Step]
+  priceItemCategories: [ PriceItemCategory ]
+  maxStepVisited: Step
+  initPath: InitPath
+}
+
+type Step {
+  id: ID!
+  slug: String!
+  type: StepType
+  label: String!
+  icon: String
+  disabled: Boolean
+  areas: [ Area ]
+  viewerSelections: [ ViewerSelection ]
+}
+
+type Area {
+  id: ID!
+  slug: String!
+  label: String
+  type: AreaType
+  children: [ SelectionItem ]
+}
+
+interface SelectionItem {
+  id: ID!
+  label: String!
+  component: SelectionItemComponent!
+  image: Image
+  data: [ SelectionItemData ]
+}
+
+type SelectionGroup implements SelectionItem {
+  id: ID!
+  label: String!
+  component: SelectionItemComponent!
+  image: Image
+  data: [ SelectionItemData ]
+  children: [ SelectionItem ]
+  viewerCameraPosition: ViewerCameraPosition
+  afterContent: [ ContentItem ]
+}
+
+type SelectionValue implements SelectionItem {
+  id: ID!
+  label: String!
+  component: SelectionItemComponent!
+  image: Image
+  data: [ SelectionItemData ]
+  priceItems: [ PriceItem ]
+  selected: Boolean
+  viewerSelections: [ ViewerSelection ]
+  selectionGroup: SelectionGroup
+}
+
+type SelectionInfo implements SelectionItem {
+  id: ID!
+  label: String!
+  component: SelectionItemComponent!
+  image: Image
+  data: [ SelectionItemData ]
+}
+
+union ViewerSelection = ViewerModelSelection | ViewerThemeSelection | ViewerMaterialSelection | ViewerVisibilitySelection | FloorPlanSize
+
+type Query {
+  project(projectId:ID, initSelections:InitSelectionInput): Project
+  steps(projectId:ID!): [ Step ]
+  step(label:String!): Step
+  areaItems(projectId:ID!, stepLabel:String!, areaLabel:String!): [ SelectionItem ]
+  viewerMaterials: [ ViewerMaterial ]
+}
+
+type Mutation {
+  setSelections( projectId: ID!, selectionInput:SelectionInput ): SetSelectionsResponse
+  setProjectNotes( projectId: ID!, notes:String ): Project
+  setProjectImage( projectId: ID!, imageInput:String): Boolean
+  setMaxStepVisited( projectId: ID!, stepId: ID! ): Project
+}
