@@ -1,0 +1,15 @@
+import gql from 'graphql-tag'
+
+const INIT_PROJECT = gql`
+  query InitProject {
+    projectId {
+      id
+      name
+      steps {
+        id
+        label
+        slug
+      }
+    }
+  }
+`

@@ -1,0 +1,14 @@
+import { 
+  ApolloProvider, 
+  Query 
+} from 'react-apollo'
+
+<ApolloProvider client={client}>
+  <Query query={INIT_PROJECT} >
+    {
+      function ( result ) {
+        // handle result
+      }
+    }
+  </Query> 
+</ApolloProvider>

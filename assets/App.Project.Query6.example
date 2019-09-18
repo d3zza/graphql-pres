@@ -1,0 +1,13 @@
+  <Query query={INIT_PROJECT} >
+    {
+      ({ error, loading, data }) => {
+        if (loading){
+          return 'Loading…'
+        }
+        if (error) {
+          return `Error! ${error.message}`
+        }
+        return <Project data={data} />
+      }
+    }
+  </Query>

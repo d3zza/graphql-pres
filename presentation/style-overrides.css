@@ -1,3 +1,20 @@
 pre[class*="language-"] {
   font-size: 32px !important;
 }
+
+
+.spectacle-content h1 {
+  border: none !important;
+  font-family: 'yorkshireregular';
+  font-weight: normal;
+  color: #e4541b !important;
+}
+
+.spectacle-content {
+  position: relative;
+}
+
+.spectacle-content > div:last-child {
+  position: absolute !important;
+  bottom: -160px !important;
+}

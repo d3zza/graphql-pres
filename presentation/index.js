@@ -1,21 +1,7 @@
 // Import React
 import React from 'react';
 // Import Spectacle Core tags
-import {
-  Appear,
-  BlockQuote,
-  Cite,
-  CodePane,
-  Deck,
-  Heading,
-  Image,
-  List,
-  ListItem,
-  Notes,
-  Quote,
-  Slide,
-  Text
-} from 'spectacle';
+import { Appear, CodePane, Deck, Heading, Image, List, ListItem, Slide, Text } from 'spectacle';
 // Import theme
 import createTheme from 'spectacle/lib/themes/default';
 import CodeSlide from 'spectacle-code-slide';
@@ -23,9 +9,10 @@ import CodeSlide from 'spectacle-code-slide';
 require('prismjs/components/prism-graphql');
 
 const images = {
+  bg: require('../assets/bg.jpg'),
   dreambuilder: require('../assets/Dream-Builder-Home-Page-Banner.jpg'),
   graphql: require('../assets/GraphQL_Logo.png'),
-  apollo: require('../assets/ApolloLogo.jpg')
+  apollo: require('../assets/apollo-logo.png')
 };
 
 // Require CSS
@@ -41,6 +28,7 @@ const theme = createTheme(
     secondary: '#1F2022',
     tertiary: '#03A9FC',
     quaternary: '#CECECE',
+    quinary: '#777',
     black: '#000',
     white: '#fff',
     orange: '#e4541b',
@@ -67,7 +55,7 @@ export default class Presentation extends React.Component {
             I'll tell you a REST joke but you have to request the joke and the punchline separately
           </Text>
         </Slide>
-        <Slide bgColor="secondary">
+        <Slide bgColor="secondary" bgImage={images.bg}>
           <Image margin="0 auto 30px" src={images.dreambuilder} height={425} />
           <Heading textFont="script" size={1} bold={false} textColor="orange">
             Building your dreams
@@ -91,28 +79,8 @@ export default class Presentation extends React.Component {
             <Appear>
               <ListItem margin="0 0 20px">Open sourced in 2015</ListItem>
             </Appear>
-          </List>
-        </Slide>
-
-        <Slide bgColor="secondary">
-          <Heading textFont="script" size={1} bold={false} textColor="orange">
-            Benefits
-          </Heading>
-          <List textColor="quaternary" line padding="0 50px" size={6}>
             <Appear>
-              <ListItem margin="0 0 20px">Reduces ‘overfetching’</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem margin="0 0 20px">Can get related data in same request</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem margin="0 0 20px">Hierarchical</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem margin="0 0 20px">Strongly typed</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem margin="0 0 20px">Introspective</ListItem>
+              <ListItem margin="0 0 20px">Shopify, Twitter, GitHub, Yelp</ListItem>
             </Appear>
           </List>
         </Slide>
@@ -124,21 +92,20 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <CodeSlide
-          transition={['slide']}
           lang="graphql"
           code={require('raw-loader!../assets/schema-types-01.example')}
           ranges={[
-            { loc: [0, 12], note: 'Project Type from DreamBuilder' },
+            { loc: [0, 12], note: 'Project Type from DreamBuilder', title: 'Schema' },
             { loc: [2, 7], note: 'Supports primitives (scalars) Boolean, String, Float, Int' },
-            { loc: [1, 2], note: 'ID is a special type' },
+            { loc: [1, 2], note: 'ID is a special (unique) type ! indicates required' },
             { loc: [9, 10], note: 'Custom type' },
-            { loc: [7, 8], note: 'List of Steps' },
             { loc: [13, 23] },
-            { loc: [20, 21] },
+            { loc: [7, 8], note: 'List [] of Steps' },
+            { loc: [20, 21], note: 'Nesting of custom types' },
             { loc: [24, 31] },
             { loc: [29, 30] },
-            { loc: [32, 39], note: 'Supports Interface' },
-            { loc: [40, 41], note: 'Interfaces can be implemented by other types' },
+            { loc: [32, 39], note: 'Supports Interfaces' },
+            { loc: [40, 41], note: 'types can implement Interfaces' },
             { loc: [41, 46], note: 'Implementation' },
             { loc: [46, 49] },
             { loc: [52, 57] },
@@ -157,22 +124,18 @@ export default class Presentation extends React.Component {
 
         <Slide bgColor="secondary">
           <CodePane
-            transition={[]}
-            // textSize="18px"
             source={require('raw-loader!../assets/query-user.example')}
             lang="graphql"
             theme="external"
             padding="0 150px"
           />
           <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0 150px">
-            We don't have to get the entire ‘User’ object if we only want say, the name
+            We don't have to get entire ‘User’ if we only want the name
           </Text>
         </Slide>
 
         <Slide bgColor="secondary">
           <CodePane
-            transition={[]}
-            // textSize="18px"
             source={require('raw-loader!../assets/query-user-min.example')}
             lang="graphql"
             theme="external"
@@ -191,8 +154,6 @@ export default class Presentation extends React.Component {
 
         <Slide bgColor="secondary">
           <CodePane
-            transition={[]}
-            // textSize="18px"
             source={require('raw-loader!../assets/query-user-friends.example')}
             lang="graphql"
             theme="external"
@@ -205,106 +166,179 @@ export default class Presentation extends React.Component {
 
         <Slide bgColor="secondary">
           <CodePane
-            transition={[]}
-            // textSize="18px"
             source={require('raw-loader!../assets/response-user-friends.example')}
             lang="graphql"
             theme="external"
             padding="0 150px"
           />
+          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0 150px" />
+        </Slide>
+
+        <Slide bgColor="secondary">
+          <Image src={images.apollo} margin="40px auto" height="120px" />
+          <Heading textFont="script" size={1} bold={false} textColor="orange">
+            Apollo (Client)
+          </Heading>
+          <List textColor="quaternary" line padding="0 150px" size={6}>
+            <ListItem>React</ListItem>
+            <ListItem textColor="quinary">Vue</ListItem>
+            <ListItem textColor="quinary">Meteor</ListItem>
+            <ListItem textColor="quinary">Ember</ListItem>
+            <ListItem textColor="quinary">Web Components</ListItem>
+            <ListItem textColor="quinary">Native iOS / Android</ListItem>
+          </List>
+        </Slide>
+
+        <Slide bgColor="secondary">
+          <Heading textFont="script" size={1} bold={false} textColor="orange">
+            Server
+          </Heading>
+          <List textColor="quaternary" line padding="0 150px" size={6}>
+            <ListItem>Node Express / Express-Graphql</ListItem>
+            <ListItem margin="0 0 20px">GraphQL for .NET</ListItem>
+          </List>
+        </Slide>
+
+        <Slide bgColor="secondary">
+          <Heading textFont="script" size={1} bold={false} textColor="orange">
+            React/Apollo Example
+          </Heading>
         </Slide>
 
         <Slide bgColor="secondary">
           <CodePane
-            transition={[]}
-            // textSize="18px"
-            source={require('raw-loader!../assets/query-user-min.example')}
-            lang="graphql"
+            source={require('raw-loader!../assets/App.Project.Query1.example')}
+            lang="js"
             theme="external"
-            padding="0 150px"
           />
-          <Text textColor="quaternary" textSize="32px" margin="40px auto 0">
-            With GraphQL we can request just the fields we want
+          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0 150px">
+            Create Apollo Client
           </Text>
         </Slide>
 
+        <Slide bgColor="secondary">
+          <CodePane
+            source={require('raw-loader!../assets/App.Project.Query2.example')}
+            lang="js"
+            theme="external"
+            padding="0"
+          />
+          <div />
+          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0 150px">
+            ‘gql’ parses GraphQL AST from template literal
+          </Text>
+        </Slide>
+
+        <Slide bgColor="secondary">
+          <CodePane
+            source={require('raw-loader!../assets/App.Project.Query3.example')}
+            lang="jsx"
+            theme="external"
+            padding="0"
+          />
+          <div />
+          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
+            Consume and render React
+          </Text>
+        </Slide>
+
+        <Slide bgColor="secondary" transition={['zoom']}>
+          <CodePane
+            source={require('raw-loader!../assets/App.Project.Query4.example')}
+            lang="jsx"
+            theme="external"
+            padding="0"
+          />
+          <div />
+          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
+            Query handler (function as child)
+          </Text>
+        </Slide>
+
+        <Slide bgColor="secondary" transition={['zoom']}>
+          <CodePane
+            source={require('raw-loader!../assets/App.Project.Query5.example')}
+            lang="jsx"
+            theme="external"
+            padding="0"
+          />
+          <div />
+          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
+            Query handler implementation
+          </Text>
+        </Slide>
+
+        <Slide bgColor="secondary" transition={['zoom']}>
+          <CodePane
+            source={require('raw-loader!../assets/App.Project.Query6.example')}
+            lang="jsx"
+            theme="external"
+            padding="0"
+          />
+          <div />
+          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
+            Query handler (ES6)
+          </Text>
+        </Slide>
+
+        {/* <CodePane
+          source={require('raw-loader!../assets/App.Project.Query.example')}
+          lang="jsx"
+          theme="external"
+          padding="0"
+        /> */}
         <CodeSlide
-          transition={[]}
-          lang="graphql"
-          code={require('raw-loader!../assets/user.example')}
-          ranges={[
-            { loc: [4, 11], note: 'In REST, we get all the fields...' },
-            { loc: [2, 3] },
-            { loc: [4, 7] },
-            { loc: [8, 10] }
-            // ...
-          ]}
+          textSize="18px"
+          lang="jsx"
+          code={require('raw-loader!../assets/App.Project.Query.example')}
+          ranges={[{ loc: [0, 7] }, { loc: [8, 13] }, { loc: [14, 27] }, { loc: [28, 47] }]}
         />
+
+        <Slide bgColor="secondary" transition={['fade']}>
+          <CodePane
+            source={require('raw-loader!../assets/App.Project.Query7.example')}
+            lang="jsx"
+            theme="external"
+            padding="0"
+          />
+          <div />
+          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
+            Hooks version
+          </Text>
+        </Slide>
 
         <Slide bgColor="secondary">
           <Heading textFont="script" size={1} bold={false} textColor="orange">
-            Benefits
+            GrahpiQL
           </Heading>
-          <List textColor="quaternary" line padding="0 50px" size={6}>
-            <Appear>
-              <ListItem margin="0 0 20px">Eliminates ‘overfetching’</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem margin="0 0 20px">Can get related data in same request</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem margin="0 0 20px">Hierarchical</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem margin="0 0 20px">Strongly typed</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem margin="0 0 20px">Introspective</ListItem>
-            </Appear>
+          <List textColor="quaternary" line padding="0 150px" size={6}>
+            <ListItem margin="0 0 20px">Write and debug queries</ListItem>
+            <ListItem margin="0 0 20px">Introspection</ListItem>
           </List>
         </Slide>
 
-        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-          <Heading size={6} textColor="secondary" caps>
-            Standard List
+        <Slide bgColor="secondary">
+          <Heading textFont="script" size={1} bold={false} textColor="orange">
+            Some Benefits to Rawsons
           </Heading>
           <List>
-            <ListItem bulletStyle="star">Item 1</ListItem>
-            <ListItem bulletStyle="cross">Item 2</ListItem>
-            <ListItem>Item 3</ListItem>
-            <ListItem>Item 4</ListItem>
+            <ListItem>Decoupling of clients and apis</ListItem>
+            <ListItem>Schema evolution without versioning</ListItem>
+            <ListItem>Gives flexibility to clients</ListItem>
+            <ListItem>Optimistic Responses</ListItem>
           </List>
         </Slide>
-        <Slide transition={['fade']} bgColor="secondary" textColor="primary">
-          <BlockQuote>
-            <Quote>Example Quote</Quote>
-            <Cite margin="10px 0 0 30px">Author</Cite>
-          </BlockQuote>
-        </Slide>
-        <Slide>
-          <Image src={images.goodWork} width={500} />
-          <Notes>gifs work too</Notes>
-          <Heading size={6} textColor="primary" caps>
-            Typography
+
+        <Slide bgColor="secondary">
+          <Heading textFont="script" size={1} bold={false} textColor="orange">
+            Thanks!
           </Heading>
-          <Heading size={1} textColor="secondary">
-            Heading 1
-          </Heading>
-          <Heading size={2} textColor="secondary">
-            Heading 2
-          </Heading>
-          <Heading size={3} textColor="secondary">
-            Heading 3
-          </Heading>
-          <Heading size={4} textColor="secondary">
-            Heading 4
-          </Heading>
-          <Heading size={5} textColor="secondary">
-            Heading 5
-          </Heading>
-          <Text size={6} textColor="secondary">
-            Standard text
-          </Text>
+          <List>
+            <ListItem>Decoupling of clients and apis</ListItem>
+            <ListItem>Schema evolution without versioning</ListItem>
+            <ListItem>Gives flexibility to clients</ListItem>
+            <ListItem>Optimistic Responses</ListItem>
+          </List>
         </Slide>
       </Deck>
     );

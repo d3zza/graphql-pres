@@ -1,0 +1,47 @@
+import { HttpLink } from 'apollo-link-http';
+import { ApolloClient } from 'apollo-client';
+import gql from 'graphql-tag';
+import { 
+  ApolloProvider,
+  Query 
+} from 'react-apollo';
+
+const link = new HttpLink({
+  uri: 'http://localhost:7000/graphql'
+});
+
+const client = new ApolloClient({ link });
+
+const INIT_PROJECT = gql`
+  query InitProject {
+    project {
+      id
+      name
+      steps {
+        id
+        label
+        slug
+      }
+    }
+  }
+`
+
+function App(){
+  return (
+    <ApolloProvider client={client}>
+      <Query>
+        {
+          ({ error, loading, data }) => {
+            if (loading){
+              return 'Loading…'
+            }
+            if (error) {
+              return `Error! ${error.message}`
+            }
+            return <Project data={data} />
+          }
+        }
+      </Query> 
+    </ApolloProvider>
+  )
+}

@@ -1,0 +1,13 @@
+//...
+  function (result) {
+    // result contains 
+    // loading | error | data
+    if (result.loading){
+      return 'Loading…'
+    }
+    if (result.error) {
+      return `Error! ${result.error.message}`
+    }
+    return 
+      <Project data={result.data} />
+  }
