@@ -1,0 +1,18 @@
+function SelectionItemButton({ ... }) {
+  const [ mutate ] = useMutation(SET_SELECTIONS)
+
+  return (
+    <button
+      onClick={() => {
+        mutate({
+          variables: { ... },
+          optimisticResponse: {
+            
+          }
+        })
+      }}
+    >
+      { selectionItem.label }
+    </button>
+  )
+}

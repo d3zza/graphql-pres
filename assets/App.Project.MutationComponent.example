@@ -1,0 +1,58 @@
+import { useMutation } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
+
+export const SET_SELECTIONS = gql`
+  mutation SetSelections($projectId: ID!, $selectionInput: SelectionInput) {
+    setSelections(projectId: $projectId, selectionInput: $selectionInput) {
+      selectedItem {
+        id
+        label
+        selected
+      }
+    }
+  }
+`;
+
+
+function SelectionItemButton({ projectId, currentStep, currentArea, selectionItem }) {
+
+  const selectionInput = {
+    stepId: currentStep.id,
+    areaId: currentArea.id,
+    selections: [selectionItem.id],
+  };
+
+  const [ mutate, { data, loading, error } ] = useMutation(SET_SELECTIONS);
+
+  const selectedSelectionItem = {
+    ...selectionItem,
+    selected: true
+  }
+
+  let label;
+  if( loading ){
+    label = 'Loading...'
+  } else if( selectionItem.selected ) {
+    label = selectionItem.label + '✓'
+  } else {
+    label = selectionItem.label;
+  }
+
+  return (
+    <button
+      onClick={() => {
+        mutate({ 
+          variables: { projectId, selectionInput },
+          optimisticResponse: {
+            __typename: 'Mutation',
+            setSelections: {
+              selectedItem: selectedSelectionItem
+            }
+          }
+        })
+      }}
+    >
+      {label}
+    </button>
+  );
+}

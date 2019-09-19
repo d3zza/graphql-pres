@@ -1,0 +1,15 @@
+input SelectionInput {
+  projectId: ID!,
+  stepId: ID!,
+  selections: [ID]
+}
+
+type SetSelectionsResponse {
+  selections: [ SelectionItem ]
+}
+
+type Mutation {
+  setSelections( 
+    selectionInput: SelectionInput 
+  ): SetSelectionsResponse
+}

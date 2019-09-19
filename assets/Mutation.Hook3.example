@@ -1,0 +1,17 @@
+function SelectionItemButton({ ... }) {
+  
+  const [ mutate, { data, loading, error } ] 
+    = useMutation(SET_SELECTIONS);
+
+  return (
+    <button 
+      disabled={loading} 
+      onClick={ () => mutate( ... ) }
+    >
+      { 
+        loading ? 
+        'Please wait...' : selectionItem.label 
+      }
+    </button>
+  )
+}

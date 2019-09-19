@@ -1,0 +1,12 @@
+<button
+  onClick={() => {
+    mutate({ 
+      optimisticResponse: {
+        __typename: 'Mutation',
+        setSelections: { ??? }
+      }
+    })
+  }}
+>
+  {selectionItem.label}
+</button>

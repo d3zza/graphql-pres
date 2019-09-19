@@ -1,0 +1,18 @@
+...
+
+return (
+  <button onClick={() => {
+      mutate({ 
+        optimisticResponse: {
+          __typename: 'Mutation',
+          setSelections: {
+            __typename: 'SetSelectionsResponse',
+            selections: optimisticSelections
+          }
+        }
+      })
+    }}
+  >
+    {selectionItem.label}
+  </button>
+)

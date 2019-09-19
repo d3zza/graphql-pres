@@ -1,0 +1,17 @@
+import gql from 'graphql-tag'
+
+export const SET_SELECTIONS = gql`
+  mutation SetSelections( 
+    $selectionInput: SelectionInput 
+  ) {
+    setSelections(
+      selectionInput: $selectionInput
+    ) {
+      selections {
+        id
+        label
+        selected
+      }
+    }
+  }
+`;

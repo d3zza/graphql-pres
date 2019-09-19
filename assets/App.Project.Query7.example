@@ -2,9 +2,7 @@ import { useQuery } from '@apollo/react-hooks';
 
 function App() {
   const { 
-    loading,
-    error,
-    data 
+    loading, error, data 
   } = useQuery(INIT_PROJECT);
   
   if (loading){

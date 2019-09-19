@@ -1,0 +1,14 @@
+import { useMutation } from '@apollo/react-hooks';
+
+function SelectionItemButton({ 
+  projectId, currentStep, selectionItem 
+}) {
+
+  const [ mutate ] = useMutation(SET_SELECTIONS);
+  
+  return (
+    <button onClick={ () => mutate() }>
+      { selectionItem.label }
+    </button>
+  );
+}

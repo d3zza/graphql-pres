@@ -1,0 +1,17 @@
+const [ mutate ] = useMutation(SET_SELECTIONS);
+
+return (
+  <button onClick={() => {
+    mutate({
+      variables: {
+        selectionInput: {
+          projectId, 
+          stepId: currentStep.id,
+          selections: [selectionItem.id]
+        }
+      }
+    })
+  }}>
+    { selectionItem.label }
+  </button>
+)

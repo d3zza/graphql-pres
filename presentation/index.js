@@ -128,6 +128,7 @@ export default class Presentation extends React.Component {
             lang="graphql"
             theme="external"
             padding="0 150px"
+            textSize="32px"
           />
           <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0 150px">
             We don't have to get entire ‘User’ if we only want the name
@@ -140,6 +141,7 @@ export default class Presentation extends React.Component {
             lang="graphql"
             theme="external"
             padding="0 150px"
+            textSize="32px"
           />
           <Text textColor="quaternary" textSize="32px" margin="40px auto 0">
             With GraphQL we can request just the fields we want
@@ -158,6 +160,7 @@ export default class Presentation extends React.Component {
             lang="graphql"
             theme="external"
             padding="0 150px"
+            textSize="32px"
           />
           <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0 150px">
             We can express relationships in schema and retrieve them in a single query
@@ -170,6 +173,7 @@ export default class Presentation extends React.Component {
             lang="graphql"
             theme="external"
             padding="0 150px"
+            textSize="32px"
           />
           <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0 150px" />
         </Slide>
@@ -210,6 +214,7 @@ export default class Presentation extends React.Component {
             source={require('raw-loader!../assets/App.Project.Query1.example')}
             lang="js"
             theme="external"
+            textSize="32px"
           />
           <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0 150px">
             Create Apollo Client
@@ -222,6 +227,7 @@ export default class Presentation extends React.Component {
             lang="js"
             theme="external"
             padding="0"
+            textSize="32px"
           />
           <div />
           <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0 150px">
@@ -235,6 +241,7 @@ export default class Presentation extends React.Component {
             lang="jsx"
             theme="external"
             padding="0"
+            textSize="32px"
           />
           <div />
           <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
@@ -248,6 +255,7 @@ export default class Presentation extends React.Component {
             lang="jsx"
             theme="external"
             padding="0"
+            textSize="32px"
           />
           <div />
           <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
@@ -261,6 +269,7 @@ export default class Presentation extends React.Component {
             lang="jsx"
             theme="external"
             padding="0"
+            textSize="32px"
           />
           <div />
           <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
@@ -274,6 +283,7 @@ export default class Presentation extends React.Component {
             lang="jsx"
             theme="external"
             padding="0"
+            textSize="32px"
           />
           <div />
           <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
@@ -281,12 +291,6 @@ export default class Presentation extends React.Component {
           </Text>
         </Slide>
 
-        {/* <CodePane
-          source={require('raw-loader!../assets/App.Project.Query.example')}
-          lang="jsx"
-          theme="external"
-          padding="0"
-        /> */}
         <CodeSlide
           textSize="18px"
           lang="jsx"
@@ -300,12 +304,169 @@ export default class Presentation extends React.Component {
             lang="jsx"
             theme="external"
             padding="0"
+            textSize="28px"
           />
           <div />
           <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
             Hooks version
           </Text>
         </Slide>
+
+        <Slide bgColor="secondary">
+          <Heading textFont="script" size={1} bold={false} textColor="orange">
+            Query Parameters
+          </Heading>
+        </Slide>
+
+        <Slide bgColor="secondary">
+          <CodePane
+            source={require('raw-loader!../assets/App.Project.QueryParams.example')}
+            lang="js"
+            theme="external"
+            padding="0"
+            textSize="32px"
+          />
+          <div />
+          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
+            Querying with parameters
+          </Text>
+        </Slide>
+
+        <Slide bgColor="secondary">
+          <Heading textFont="script" size={1} bold={false} textColor="orange">
+            Mutations
+          </Heading>
+        </Slide>
+
+        <Slide bgColor="secondary">
+          <CodePane
+            source={require('raw-loader!../assets/Mutation.Schema.example')}
+            lang="graphql"
+            theme="external"
+            padding="0"
+            textSize="28px"
+          />
+          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
+            Schema
+          </Text>
+        </Slide>
+
+        <Slide bgColor="secondary">
+          <CodePane
+            source={require('raw-loader!../assets/Mutation.gql.example')}
+            lang="js"
+            theme="external"
+            padding="0"
+            textSize="28px"
+          />
+          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
+            Client
+          </Text>
+        </Slide>
+
+        <Slide bgColor="secondary">
+          <CodePane
+            source={require('raw-loader!../assets/Mutation.Hook1.example')}
+            lang="jsx"
+            theme="external"
+            padding="0"
+            textSize="28px"
+          />
+          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
+            Mutation Hook
+          </Text>
+        </Slide>
+
+        <Slide bgColor="secondary">
+          <CodePane
+            source={require('raw-loader!../assets/Mutation.Hook2.example')}
+            lang="jsx"
+            theme="external"
+            padding="0"
+            textSize="28px"
+          />
+          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
+            Pass variables to mutate
+          </Text>
+        </Slide>
+
+        <Slide bgColor="secondary">
+          <CodePane
+            source={require('raw-loader!../assets/Mutation.Hook3.example')}
+            lang="jsx"
+            theme="external"
+            padding="0"
+            textSize="28px"
+          />
+          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
+            Mutation status
+          </Text>
+        </Slide>
+
+        <Slide bgColor="secondary">
+          <CodePane
+            source={require('raw-loader!../assets/Mutation.Hook4.example')}
+            lang="jsx"
+            theme="external"
+            padding="0"
+            textSize="28px"
+          />
+          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
+            Optimistic Response
+          </Text>
+        </Slide>
+
+        <Slide bgColor="secondary">
+          <CodePane
+            source={require('raw-loader!../assets/Mutation.Hook5.example')}
+            lang="jsx"
+            theme="external"
+            padding="0"
+            textSize="28px"
+          />
+          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
+            Optimistic Response Details
+          </Text>
+        </Slide>
+
+        <Slide bgColor="secondary">
+          <CodePane
+            source={require('raw-loader!../assets/Mutation.Hook6.example')}
+            lang="jsx"
+            theme="external"
+            padding="0"
+            textSize="28px"
+          />
+          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
+            Optimistic Selections
+          </Text>
+        </Slide>
+
+        <Slide bgColor="secondary">
+          <CodePane
+            source={require('raw-loader!../assets/Mutation.Hook7.example')}
+            lang="jsx"
+            theme="external"
+            padding="0"
+            textSize="28px"
+          />
+          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
+            Optimistic Response Selections
+          </Text>
+        </Slide>
+
+        <CodeSlide
+          textSize="18px"
+          lang="jsx"
+          code={require('raw-loader!../assets/Mutation.Hook.example')}
+          ranges={[
+            { loc: [0, 3] },
+            { loc: [3, 4] },
+            { loc: [5, 12] },
+            { loc: [16, 23] },
+            { loc: [23, 30] }
+          ]}
+        />
 
         <Slide bgColor="secondary">
           <Heading textFont="script" size={1} bold={false} textColor="orange">
@@ -321,11 +482,22 @@ export default class Presentation extends React.Component {
           <Heading textFont="script" size={1} bold={false} textColor="orange">
             Some Benefits to Rawsons
           </Heading>
-          <List>
-            <ListItem>Decoupling of clients and apis</ListItem>
-            <ListItem>Schema evolution without versioning</ListItem>
-            <ListItem>Gives flexibility to clients</ListItem>
-            <ListItem>Optimistic Responses</ListItem>
+          <List textColor="quaternary" line padding="0" size={6}>
+            <Appear>
+              <ListItem margin="0 0 20px">Decoupling of clients and apis</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem margin="0 0 20px">Schema changes without versioning</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem margin="0 0 20px">Schema becomes self documenting</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem margin="0 0 20px">Flexibility for clients</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem margin="0 0 20px">Performance</ListItem>
+            </Appear>
           </List>
         </Slide>
 
@@ -333,12 +505,6 @@ export default class Presentation extends React.Component {
           <Heading textFont="script" size={1} bold={false} textColor="orange">
             Thanks!
           </Heading>
-          <List>
-            <ListItem>Decoupling of clients and apis</ListItem>
-            <ListItem>Schema evolution without versioning</ListItem>
-            <ListItem>Gives flexibility to clients</ListItem>
-            <ListItem>Optimistic Responses</ListItem>
-          </List>
         </Slide>
       </Deck>
     );

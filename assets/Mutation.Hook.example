@@ -1,0 +1,37 @@
+import { useMutation } from '@apollo/react-hooks';
+
+function SelectionItemButton({ projectId, currentStep, selectionItem }) {
+  const [mutate] = useMutation(SET_SELECTIONS);
+
+  const optimisticSelections = [
+    {
+      ...selectionItem, // copy
+      selected: true
+    }
+  ];
+
+  return (
+    <button
+      onClick={() => {
+        mutate({
+          variables: {
+            selectionInput: {
+              projectId,
+              stepId: currentStep.id,
+              selections: [ selectionItem.id ]
+            }
+          },
+          optimisticResponse: {
+            __typename: 'Mutation',
+            setSelections: {
+              __typename: 'SetSelectionsResponse',
+              selections: optimisticSelections
+            }
+          }
+        })
+      }}
+    >
+      {selectionItem.label}
+    </button>
+  );
+}

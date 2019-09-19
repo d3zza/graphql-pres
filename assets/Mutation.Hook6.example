@@ -1,0 +1,13 @@
+function SelectionItemButton({ ... selectionItem }) {
+  
+  const [ mutate ] = useMutation(SET_SELECTIONS);
+
+  const optimisticSelections = [
+    {
+      ...selectionItem, // copy
+      selected: true
+    }
+  ]
+
+  ...
+}
