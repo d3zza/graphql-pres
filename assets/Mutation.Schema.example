@@ -1,3 +1,4 @@
+#schema
 input SelectionInput {
   projectId: ID!,
   stepId: ID!,

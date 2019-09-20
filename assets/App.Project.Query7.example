@@ -4,10 +4,11 @@ function App() {
   const { 
     loading, error, data 
   } = useQuery(INIT_PROJECT);
-  
+
   if (loading){
     return 'Loading…'
   }
+  
   if (error) {
     return `Error! ${error.message}`
   }

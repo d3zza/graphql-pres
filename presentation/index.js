@@ -100,10 +100,8 @@ export default class Presentation extends React.Component {
             { loc: [1, 2], note: 'ID is a special (unique) type ! indicates required' },
             { loc: [9, 10], note: 'Custom type' },
             { loc: [13, 23] },
-            { loc: [7, 8], note: 'List [] of Steps' },
             { loc: [20, 21], note: 'Nesting of custom types' },
             { loc: [24, 31] },
-            { loc: [29, 30] },
             { loc: [32, 39], note: 'Supports Interfaces' },
             { loc: [40, 41], note: 'types can implement Interfaces' },
             { loc: [41, 46], note: 'Implementation' },
@@ -130,9 +128,7 @@ export default class Presentation extends React.Component {
             padding="0 150px"
             textSize="32px"
           />
-          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0 150px">
-            We don't have to get entire ‘User’ if we only want the name
-          </Text>
+          <div />
         </Slide>
 
         <Slide bgColor="secondary">
@@ -143,9 +139,7 @@ export default class Presentation extends React.Component {
             padding="0 150px"
             textSize="32px"
           />
-          <Text textColor="quaternary" textSize="32px" margin="40px auto 0">
-            With GraphQL we can request just the fields we want
-          </Text>
+          <div />
         </Slide>
 
         <Slide bgColor="secondary">
@@ -163,7 +157,7 @@ export default class Presentation extends React.Component {
             textSize="32px"
           />
           <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0 150px">
-            We can express relationships in schema and retrieve them in a single query
+            Retrieve related data in a single query
           </Text>
         </Slide>
 
@@ -179,6 +173,18 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide bgColor="secondary">
+          <Heading textFont="script" size={1} bold={false} textColor="orange">
+            Rawsons Server
+          </Heading>
+          <List textColor="quaternary" line padding="0 150px" size={6}>
+            <ListItem>GraphQL for .NET</ListItem>
+            <ListItem margin="20px 0" textColor="quinary">
+              Node Express / Express-Graphql
+            </ListItem>
+          </List>
+        </Slide>
+
+        <Slide bgColor="secondary">
           <Image src={images.apollo} margin="40px auto" height="120px" />
           <Heading textFont="script" size={1} bold={false} textColor="orange">
             Apollo (Client)
@@ -190,16 +196,6 @@ export default class Presentation extends React.Component {
             <ListItem textColor="quinary">Ember</ListItem>
             <ListItem textColor="quinary">Web Components</ListItem>
             <ListItem textColor="quinary">Native iOS / Android</ListItem>
-          </List>
-        </Slide>
-
-        <Slide bgColor="secondary">
-          <Heading textFont="script" size={1} bold={false} textColor="orange">
-            Server
-          </Heading>
-          <List textColor="quaternary" line padding="0 150px" size={6}>
-            <ListItem>Node Express / Express-Graphql</ListItem>
-            <ListItem margin="0 0 20px">GraphQL for .NET</ListItem>
           </List>
         </Slide>
 
@@ -227,12 +223,9 @@ export default class Presentation extends React.Component {
             lang="js"
             theme="external"
             padding="0"
-            textSize="32px"
+            textSize="30px"
           />
           <div />
-          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0 150px">
-            ‘gql’ parses GraphQL AST from template literal
-          </Text>
         </Slide>
 
         <Slide bgColor="secondary">
@@ -244,9 +237,6 @@ export default class Presentation extends React.Component {
             textSize="32px"
           />
           <div />
-          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
-            Consume and render React
-          </Text>
         </Slide>
 
         <Slide bgColor="secondary" transition={['zoom']}>
@@ -258,9 +248,6 @@ export default class Presentation extends React.Component {
             textSize="32px"
           />
           <div />
-          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
-            Query handler (function as child)
-          </Text>
         </Slide>
 
         <Slide bgColor="secondary" transition={['zoom']}>
@@ -272,9 +259,6 @@ export default class Presentation extends React.Component {
             textSize="32px"
           />
           <div />
-          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
-            Query handler implementation
-          </Text>
         </Slide>
 
         <Slide bgColor="secondary" transition={['zoom']}>
@@ -286,9 +270,6 @@ export default class Presentation extends React.Component {
             textSize="32px"
           />
           <div />
-          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
-            Query handler (ES6)
-          </Text>
         </Slide>
 
         <CodeSlide
@@ -307,9 +288,6 @@ export default class Presentation extends React.Component {
             textSize="28px"
           />
           <div />
-          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
-            Hooks version
-          </Text>
         </Slide>
 
         <Slide bgColor="secondary">
@@ -327,9 +305,6 @@ export default class Presentation extends React.Component {
             textSize="32px"
           />
           <div />
-          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
-            Querying with parameters
-          </Text>
         </Slide>
 
         <Slide bgColor="secondary">
@@ -346,9 +321,7 @@ export default class Presentation extends React.Component {
             padding="0"
             textSize="28px"
           />
-          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
-            Schema
-          </Text>
+          <div />
         </Slide>
 
         <Slide bgColor="secondary">
@@ -359,9 +332,7 @@ export default class Presentation extends React.Component {
             padding="0"
             textSize="28px"
           />
-          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
-            Client
-          </Text>
+          <div />
         </Slide>
 
         <Slide bgColor="secondary">
@@ -377,7 +348,7 @@ export default class Presentation extends React.Component {
           </Text>
         </Slide>
 
-        <Slide bgColor="secondary">
+        <Slide bgColor="secondary" transition={['zoom']}>
           <CodePane
             source={require('raw-loader!../assets/Mutation.Hook2.example')}
             lang="jsx"
@@ -385,9 +356,7 @@ export default class Presentation extends React.Component {
             padding="0"
             textSize="28px"
           />
-          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
-            Pass variables to mutate
-          </Text>
+          <div />
         </Slide>
 
         <Slide bgColor="secondary">
@@ -398,9 +367,7 @@ export default class Presentation extends React.Component {
             padding="0"
             textSize="28px"
           />
-          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
-            Mutation status
-          </Text>
+          <div />
         </Slide>
 
         <Slide bgColor="secondary">
@@ -411,9 +378,7 @@ export default class Presentation extends React.Component {
             padding="0"
             textSize="28px"
           />
-          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
-            Optimistic Response
-          </Text>
+          <div />
         </Slide>
 
         <Slide bgColor="secondary">
@@ -424,9 +389,7 @@ export default class Presentation extends React.Component {
             padding="0"
             textSize="28px"
           />
-          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
-            Optimistic Response Details
-          </Text>
+          <div />
         </Slide>
 
         <Slide bgColor="secondary">
@@ -437,9 +400,7 @@ export default class Presentation extends React.Component {
             padding="0"
             textSize="28px"
           />
-          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
-            Optimistic Selections
-          </Text>
+          <div />
         </Slide>
 
         <Slide bgColor="secondary">
@@ -450,9 +411,7 @@ export default class Presentation extends React.Component {
             padding="0"
             textSize="28px"
           />
-          <Text textColor="quaternary" textSize="32px" margin="40px auto 0" padding="0">
-            Optimistic Response Selections
-          </Text>
+          <div />
         </Slide>
 
         <CodeSlide
