@@ -1,6 +1,6 @@
 [![Maintenance Status][maintenance-image]](#maintenance-status)
 
-# Spectacle Boilerplate
+# GraphQL Preso
 
 ## Contents
 
@@ -11,14 +11,16 @@
 
 ## Reference
 
-The Spectacle core API is available in the [Spectacle Docs](https://github.com/FormidableLabs/spectacle/blob/master/README.md).
+Preso built with Spectacle. Spectacle core API is available in the [Spectacle Docs](https://github.com/FormidableLabs/spectacle/blob/master/README.md).
 
 ## Getting Started
+
+https://
 
 1. Download the boilerplate
 
    ```sh
-   git clone git@github.com:FormidableLabs/spectacle-boilerplate.git
+   git clone git@github.com:d3zza/graphql-pres.git
    ```
 
 2. Remove existing version control
@@ -59,6 +61,4 @@ yarn deploy
 
 ## Maintenance Status
 
-**Active:** Formidable is actively working on this project, and we expect to continue for work for the foreseeable future. Bug reports, feature requests and pull requests are welcome. 
-
-[maintenance-image]: https://img.shields.io/badge/maintenance-active-green.svg
+**Inactive:** This project is not actively being maintained.
