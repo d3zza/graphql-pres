@@ -50,11 +50,6 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck transition={['slide']} transitionDuration={500} theme={theme}>
-        <Slide bgColor="secondary">
-          <Text textColor="quaternary" margin="20px" textSize="48px" italic>
-            I'll tell you a REST joke but you have to request the joke and the punchline separately
-          </Text>
-        </Slide>
         <Slide bgColor="secondary" bgImage={images.bg}>
           <Image margin="0 auto 30px" src={images.dreambuilder} height={425} />
           <Heading textFont="script" size={1} bold={false} textColor="orange">
